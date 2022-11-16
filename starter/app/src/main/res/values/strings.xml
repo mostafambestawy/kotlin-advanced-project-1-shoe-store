@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">ShoeStore</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -7,6 +7,10 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="create_new_account">Create New Account</string>
-    <string name="help_format">As This Project is a Startup Project, you will get the user name and  password this time only\n user name: Udacity \npassword: Udacity_1</string>
+    <string name="help_format" tools:ignore="Typos">As This Project is a Startup Project, you will get the user name and  password this time only\n user name: Udacity \npassword: Udacity_1</string>
+    <string name="title">FWD Project (1)</string>
+    <string name="welcome_to_the_project">Welcome To The FWD Project (1)</string>
+    <string name="instructions">Instructions</string>
+    <string name="wrong_user_name">Wrong User Name , or Password</string>
 
 </resources>
