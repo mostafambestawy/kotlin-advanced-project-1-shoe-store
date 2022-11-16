@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".LoginFragment"
-    >
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="loginViewModel"
+            type="com.udacity.shoestore.login.LoginViewModel" />
+    </data>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="16dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
+        android:gravity="center"
+        android:layout_margin="16dp"
         >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
+            android:orientation="horizontal"
+            android:layout_margin="16dp">
             <TextView
                 android:id="@+id/userNameText"
                 android:layout_width="wrap_content"
@@ -28,16 +30,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="@string/type_in_your_user_name"
                 android:autofillHints="name"
-                android:inputType="text"
-                />
+                android:hint="@string/type_in_your_user_name"
+                android:inputType="text" />
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_margin="16dp">
 
             <TextView
                 android:id="@+id/passwordText"
@@ -50,28 +51,29 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPassword"
                 android:autofillHints="password"
-                />
+                android:inputType="textPassword" />
+
 
         </LinearLayout>
-
+        <TextView
+            android:id="@+id/helpText"
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="@{@string/help_format(loginViewModel.appUserName,loginViewModel.appPassword)}" />
         <Button
             android:id="@+id/loginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:text="@string/login" />
-
         <Button
             android:id="@+id/signUpButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:text="@string/create_new_account" />
-
     </LinearLayout>
-
-
 </layout>

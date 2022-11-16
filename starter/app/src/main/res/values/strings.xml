@@ -7,4 +7,6 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="create_new_account">Create New Account</string>
+    <string name="help_format">As This Project is a Startup Project, you will get the user name and  password this time only\n user name: Udacity \npassword: Udacity_1</string>
+
 </resources>
