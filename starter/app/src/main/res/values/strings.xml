@@ -12,5 +12,13 @@
     <string name="welcome_to_the_project">Welcome To The FWD Project (1)</string>
     <string name="instructions">Instructions</string>
     <string name="wrong_user_name">Wrong User Name , or Password</string>
+    <string name="instructions_items">1.The shoe listing page will show the list of shoes\n\n2.show a button for adding a new shoe\n\n3.the detail page will be for adding a shoe entry\n\n4.All entries will available only as long as the app is running\n\n5.This Project is a startup Projects from FWD and Udacity\n\n6.under the Coarse Advanced Android Programing using Kotlin</string>
+    <string name="read_instructions">Please Read Carefully all the 6 instructions below</string>
+    <string name="accept_and_open_shoe_listing">Accept and Open Shoe Listing</string>
+    <string name="shoe_name">Name</string>
+    <string name="company">Company</string>
+    <string name="shoe">Shoe</string>
+    <string name="size">Size</string>
+    <string name="description">Description</string>
 
 </resources>

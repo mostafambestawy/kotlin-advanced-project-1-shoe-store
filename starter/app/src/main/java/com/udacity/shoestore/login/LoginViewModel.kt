@@ -25,13 +25,15 @@ class LoginViewModel : ViewModel() {
 
 
     fun checkCredential() {
-        if ( _userName.value.toString().trim() == Constants.APP_CREDENTIAL.userName && _password.value.toString().trim() == Constants.APP_CREDENTIAL.password )
+        //TODO delete after debug
+        _loggedIn.value = true
+        /*if ( _userName.value.toString().trim() == Constants.APP_CREDENTIAL.userName && _password.value.toString().trim() == Constants.APP_CREDENTIAL.password )
             _loggedIn.value = true
         else {
             _loggedIn.value = false;
             _eventShowHelpMessage.value = true
             resetCredential()
-        }
+        }*/
 
     }
 
