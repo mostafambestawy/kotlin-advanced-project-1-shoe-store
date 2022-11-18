@@ -14,9 +14,7 @@ class LoginViewModel : ViewModel() {
     private val _loggedIn = MutableLiveData<Boolean>()
     val  loggedIn: LiveData<Boolean>
         get() = _loggedIn
-    private val _eventShowHelpMessage = MutableLiveData<Boolean>()
-    val  eventShowHelpMessage: LiveData<Boolean>
-        get() = _eventShowHelpMessage
+
     val userName: LiveData<String>
         get() = _userName
     private val _password = MutableLiveData<String>()

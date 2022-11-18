@@ -1,29 +1,20 @@
-package com.udacity.shoestore.shoeList
+package com.udacity.shoestore
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.udacity.shoestore.models.Shoe
 
-class ShoeListViewModel: ViewModel() {
+class MainActivityViewModel: ViewModel() {
     private val _shoeList = MutableLiveData<List<Shoe>>()
     val  shoeList: LiveData<List<Shoe>>
         get() = _shoeList
-
-
-    override fun onCleared() {
-        super.onCleared()
-        Log.i("ShoeListViewModel","cleared")
-    }
-
-
-
     init {
         if(_shoeList.value == null || _shoeList.value!!.isEmpty()) _shoeList.value = getSampleShoeData()
-
     }
-
+    fun addShoeItem(shoe:Shoe){
+        _shoeList.value = _shoeList.value?.plus(shoe)?: mutableListOf(shoe)
+    }
     private fun getSampleShoeData(): MutableList<Shoe>{
         return mutableListOf(
             Shoe("Air forces",11.54,"Nike","descreption_1",listOf("https://www.shutterstock.com/image-photo/zhlobin-belarus-january-10-2021-600w-1897505821.jpg"))
@@ -61,10 +52,4 @@ class ShoeListViewModel: ViewModel() {
             */
         )
     }
-
-    fun addShoeItem(shoe:Shoe){
-        _shoeList.value = _shoeList.value?.plus(shoe)?: mutableListOf(shoe)
-    }
-
-
 }

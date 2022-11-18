@@ -17,19 +17,20 @@ import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.databinding.ShoeItemBinding
 import com.udacity.shoestore.models.Shoe
-
+import androidx.fragment.app.activityViewModels
+import com.udacity.shoestore.MainActivityViewModel
 
 class ShoeListFragment : Fragment() {
     private lateinit var binding: FragmentShoeListBinding
-    private lateinit var viewModel: ShoeListViewModel
+    private val mainActivityViewModel: MainActivityViewModel by activityViewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_list, container, false)
         binding.lifecycleOwner = this
-        viewModel = ViewModelProvider(this)[ShoeListViewModel::class.java]
-        viewModel.shoeList.observe(viewLifecycleOwner, Observer { shoeList ->
+        mainActivityViewModel.shoeList.observe(viewLifecycleOwner,Observer { shoeList ->
             for (shoe: Shoe in shoeList) run {
                 binding.shoeListLinearLayout.addView(getShoeView(shoe))
             }
@@ -41,9 +42,7 @@ class ShoeListFragment : Fragment() {
 
         var args = ShoeListFragmentArgs.fromBundle(requireArguments())
         if(args.isShoeItemAdded){
-            //TODO know why the viewModel.shoeList.value is returned null,
-            // although the viewModel exist during the lifecycle and  viewModel.onCleared() not called
-           viewModel.addShoeItem(args.shoeItem!!)
+            mainActivityViewModel.addShoeItem(args.shoeItem!!)
         }
 
         setHasOptionsMenu(true)

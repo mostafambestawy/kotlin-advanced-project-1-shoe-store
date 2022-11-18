@@ -7,25 +7,21 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
-import com.udacity.shoestore.instructions.InstructionsFragmentDirections
-import com.udacity.shoestore.instructions.InstructionsViewModel
 import com.udacity.shoestore.models.Shoe
-import java.util.Collections.list
+
 
 class ShoeDetailFragment: Fragment() {
     private lateinit var binding: FragmentShoeDetailBinding
-    private lateinit var viewModel: ShoeDetailViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_detail, container, false)
         binding.lifecycleOwner = this
-        viewModel = ViewModelProvider(this)[ShoeDetailViewModel::class.java]
+
 
         binding.saveButton.setOnClickListener {
             val shoe:Shoe? = getValidatedShoe()
