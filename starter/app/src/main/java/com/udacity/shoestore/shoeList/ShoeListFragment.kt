@@ -3,15 +3,15 @@ package com.udacity.shoestore.shoeList
 
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.annotation.ArrayRes
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.bumptech.glide.Glide
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
@@ -46,10 +46,21 @@ class ShoeListFragment : Fragment() {
            viewModel.addShoeItem(args.shoeItem!!)
         }
 
+        setHasOptionsMenu(true)
+
         return binding.root
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater?.inflate(R.menu.logout_menu, menu)
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(item!!, requireView().findNavController())
+                ||
+        super.onOptionsItemSelected(item)
+    }
     private fun getShoeView(shoe: Shoe): View? {
 
         val _binding: ShoeItemBinding = DataBindingUtil.inflate(LayoutInflater.from(context),R.layout.shoe_item,binding.shoeListLinearLayout,false)
