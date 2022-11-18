@@ -6,10 +6,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.ArrayRes
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
@@ -33,15 +35,28 @@ class ShoeListFragment : Fragment() {
             }
 
         })
+        binding.addShoefloatingActionButton.setOnClickListener{
+            findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment())
+        }
+
+        var args = ShoeListFragmentArgs.fromBundle(requireArguments())
+        if(args.isShoeItemAdded){
+            //TODO know why the viewModel.shoeList.value is returned null,
+            // although the viewModel exist during the lifecycle and  viewModel.onCleared() not called
+           viewModel.addShoeItem(args.shoeItem!!)
+        }
+
         return binding.root
     }
+
 
     private fun getShoeView(shoe: Shoe): View? {
 
         val _binding: ShoeItemBinding = DataBindingUtil.inflate(LayoutInflater.from(context),R.layout.shoe_item,binding.shoeListLinearLayout,false)
         _binding.shoe = shoe
-
-        context?.let { Glide.with(it).load(shoe.images[0]).into(_binding.shoeImageView) };
+        if(shoe.images.isNotEmpty())
+        context?.let { Glide.with(it).load(shoe.images[0]).into(_binding.shoeImageView) }
+        else _binding.shoeImageView.visibility = View.GONE
         return _binding.root
 
     }

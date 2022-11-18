@@ -20,5 +20,8 @@
     <string name="shoe">Shoe</string>
     <string name="size">Size</string>
     <string name="description">Description</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="missing_data">Missing Shoe Data !</string>
 
 </resources>

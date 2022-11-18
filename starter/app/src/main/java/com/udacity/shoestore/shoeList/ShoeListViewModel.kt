@@ -1,32 +1,34 @@
 package com.udacity.shoestore.shoeList
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.udacity.shoestore.models.Shoe
 
 class ShoeListViewModel: ViewModel() {
-
-    private val _selectedShoe = MutableLiveData<Shoe>()
-    val  selectedShoe: LiveData<Shoe>
-        get() = _selectedShoe
-
     private val _shoeList = MutableLiveData<List<Shoe>>()
     val  shoeList: LiveData<List<Shoe>>
         get() = _shoeList
-    private val _renderedShoeList = MutableLiveData<List<Shoe>>()
-    val  renderedShoeList: LiveData<List<Shoe>>
-        get() = _renderedShoeList
+
+
+    override fun onCleared() {
+        super.onCleared()
+        Log.i("ShoeListViewModel","cleared")
+    }
+
+
 
     init {
-        populateSampleShoeData()
+        if(_shoeList.value == null || _shoeList.value!!.isEmpty()) _shoeList.value = getSampleShoeData()
 
     }
 
-    private fun populateSampleShoeData() {
-        _shoeList.value = mutableListOf(Shoe("Air forces",11.54,"Nike","descreption_1",listOf("https://www.shutterstock.com/image-photo/zhlobin-belarus-january-10-2021-600w-1897505821.jpg"))
-            ,Shoe("Ballet shoe",13.75,"Adidas","descreption_2",listOf("https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"))
-            ,Shoe("Pointe shoe",17.34,"Kering","descreption_3",listOf("https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1412&q=80"))
+    private fun getSampleShoeData(): MutableList<Shoe>{
+        return mutableListOf(
+            Shoe("Air forces",11.54,"Nike","descreption_1",listOf("https://www.shutterstock.com/image-photo/zhlobin-belarus-january-10-2021-600w-1897505821.jpg"))
+            , Shoe("Ballet shoe",13.75,"Adidas","descreption_2",listOf("https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"))
+            , Shoe("Pointe shoe",17.34,"Kering","descreption_3",listOf("https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1412&q=80"))
             /*,Shoe("Bast shoe",17.14,"VF Corp","descreption_4",listOf("https://www.shutterstock.com/image-photo/zhlobin-belarus-january-10-2021-600w-1897505821.jpg"))
             ,Shoe("Blucher shoe",11.58,"Skechers","descreption_5",listOf("https://www.shutterstock.com/image-photo/zhlobin-belarus-january-10-2021-600w-1897505821.jpg"))
             ,Shoe("Boat shoe",18.81,"New Balance","descreption_6",listOf("https://www.shutterstock.com/image-photo/zhlobin-belarus-january-10-2021-600w-1897505821.jpg"))
@@ -57,12 +59,12 @@ class ShoeListViewModel: ViewModel() {
             ,Shoe("Giveh",15.98,"Nike","descreption_31",listOf("https://www.shutterstock.com/image-photo/zhlobin-belarus-january-10-2021-600w-1897505821.jpg"))
             ,Shoe("High-heeled footwear",12.57,"Adidas","descreption_32",listOf("https://www.shutterstock.com/image-photo/zhlobin-belarus-january-10-2021-600w-1897505821.jpg"))
             */
-            )
-
-
+        )
     }
-    fun addToRenderedShoes(shoe: Shoe){
-        _renderedShoeList.value = _renderedShoeList.value?.plus(shoe)?: listOf(shoe)
+
+    fun addShoeItem(shoe:Shoe){
+        _shoeList.value = _shoeList.value?.plus(shoe)?: mutableListOf(shoe)
     }
+
 
 }

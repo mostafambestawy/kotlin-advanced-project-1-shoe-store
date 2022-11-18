@@ -37,5 +37,25 @@
     <fragment
         android:id="@+id/ShoeListFragment"
         android:name="com.udacity.shoestore.shoeList.ShoeListFragment"
-        android:label="ShoeListFragment" />
+        android:label="ShoeListFragment" >
+        <action
+            android:id="@+id/action_ShoeListFragment_to_shoeDetailFragment"
+            app:destination="@id/shoeDetailFragment" />
+        <argument
+            android:name="isShoeItemAdded"
+            app:argType="boolean" />
+        <argument
+            android:name="shoeItem"
+            app:argType="com.udacity.shoestore.models.Shoe"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoeDetailFragment"
+        android:name="com.udacity.shoestore.shoeDetail.ShoeDetailFragment"
+        android:label="ShoeDetailFragment" >
+        <action
+            android:id="@+id/action_shoeDetailFragment_to_ShoeListFragment"
+            app:destination="@id/ShoeListFragment" />
+    </fragment>
 </navigation>

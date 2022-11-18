@@ -33,10 +33,12 @@
 
             <TextView
                 android:id="@+id/shoeNameText"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@{shoe.name}"
-                android:layout_marginHorizontal="8dp"/>
+                android:layout_marginHorizontal="8dp"
+                />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,10 +54,12 @@
 
             <TextView
                 android:id="@+id/shoeCompanyText"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@{shoe.company}"
-                android:layout_marginHorizontal="8dp"/>
+                android:layout_marginHorizontal="8dp"
+                />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -71,8 +75,9 @@
 
             <TextView
                 android:id="@+id/shoeSizeText"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@{Double.toString(shoe.size)}"
                 android:layout_marginHorizontal="8dp"/>
         </LinearLayout>
@@ -90,8 +95,9 @@
 
             <TextView
                 android:id="@+id/shoeDescriptionText"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@{shoe.description}"
                 android:layout_marginHorizontal="8dp"/>
         </LinearLayout>
