@@ -24,5 +24,8 @@
     <string name="cancel">Cancel</string>
     <string name="missing_data">Missing Shoe Data !</string>
     <string name="logout">Log Out</string>
+    <string name="welcome">Welcome</string>
+    <string name="shoes">Shoes</string>
+    <string name="add_shoe">Add Shoe</string>
 
 </resources>
