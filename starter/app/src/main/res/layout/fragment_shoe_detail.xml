@@ -24,18 +24,15 @@
 
                 <TextView
                     android:id="@+id/shoeNameLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/shoe"
-                    android:textStyle="bold"/>
+                    style="@style/labelStyle" />
 
                 <EditText
                     android:id="@+id/shoeNameEditText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginHorizontal="8dp"
-                    android:hint="@string/shoe"/>
+                    android:hint="@string/shoe"
+                    style="@style/stretchedTextStyle"
+                    android:autofillHints="@string/shoe"
+                    android:inputType="text"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -44,18 +41,16 @@
 
                 <TextView
                     android:id="@+id/shoeCompanyLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/labelStyle"
                     android:text="@string/company"
-                    android:textStyle="bold"/>
+                    />
 
                 <EditText
                     android:id="@+id/shoeCompanyEditText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginHorizontal="8dp"
-                    android:hint="@string/company"/>
+                    style="@style/stretchedTextStyle"
+                    android:hint="@string/company"
+                    android:autofillHints="@string/company"
+                    android:inputType="text"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -64,19 +59,17 @@
 
                 <TextView
                     android:id="@+id/shoeSizeLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/labelStyle"
                     android:text="@string/size"
-                    android:textStyle="bold"
+
                     />
 
                 <EditText
                     android:id="@+id/shoeSizeEditText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginHorizontal="8dp"
-                    android:hint="@string/size"/>
+                    style="@style/stretchedTextStyle"
+                    android:hint="@string/size"
+                    android:autofillHints="@string/size"
+                    android:inputType="number"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -85,33 +78,27 @@
 
                 <TextView
                     android:id="@+id/shoeDescriptionLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/labelStyle"
                     android:text="@string/description"
-                    android:textStyle="bold"/>
+                    />
 
                 <EditText
                     android:id="@+id/shoeDescriptionEditText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginHorizontal="8dp"
-                    android:hint="@string/description"/>
+                    style="@style/stretchedTextStyle"
+                    android:hint="@string/description"
+                    android:autofillHints="@string/description"
+                    android:inputType="text"/>
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
         <Button
             android:id="@+id/saveButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            style="@style/buttonStyle"
             android:text="@string/save" />
         <Button
             android:id="@+id/cancelButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            style="@style/buttonStyle"
             android:text="@string/cancel" />
 
     </LinearLayout>

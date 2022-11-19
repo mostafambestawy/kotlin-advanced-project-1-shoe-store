@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <variable
@@ -21,15 +20,12 @@
             android:layout_margin="16dp">
             <TextView
                 android:id="@+id/userNameText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/labelStyle"
                 android:text="@string/user_name" />
 
             <EditText
                 android:id="@+id/userNameEditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                style="@style/stretchedTextStyle"
                 android:autofillHints="name"
                 android:hint="@string/type_in_your_user_name"
                 android:inputType="text"
@@ -45,15 +41,12 @@
 
             <TextView
                 android:id="@+id/passwordText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/labelStyle"
                 android:text="@string/password" />
 
             <EditText
                 android:id="@+id/passwordEditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                style="@style/stretchedTextStyle"
                 android:autofillHints="password"
                 android:inputType="textPassword"
                 android:text="@{loginViewModel.password}"
@@ -65,24 +58,21 @@
         </LinearLayout>
         <TextView
             android:id="@+id/helpText"
+            style="@style/labelStyle"
             android:layout_margin="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:visibility="gone"
             android:text="@string/help_format" />
+
         <Button
             android:id="@+id/loginButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="@string/login"
-            android:onClick="@{() -> loginViewModel.checkCredential()}"/>
+            style="@style/buttonStyle"
+            android:onClick="@{() -> loginViewModel.checkCredential()}"
+            android:text="@string/login" />
         <Button
             android:id="@+id/signUpButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            style="@style/buttonStyle"
             android:text="@string/create_new_account"
-            android:onClick="@{() -> loginViewModel.checkCredential()}"/>
+            android:onClick="@{() -> loginViewModel.checkCredential()}"
+             />
     </LinearLayout>
 </layout>

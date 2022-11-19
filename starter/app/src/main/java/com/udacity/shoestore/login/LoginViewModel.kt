@@ -13,7 +13,7 @@ class LoginViewModel : ViewModel() {
     val loggedIn: LiveData<Boolean>
         get() = _loggedIn
     init {
-        _loggedIn.value = false
+
     }
 
     val userName: LiveData<String>
@@ -24,16 +24,15 @@ class LoginViewModel : ViewModel() {
 
 
     fun checkCredential() {
-        //TODO delete after debug
-        _loggedIn.value = true
-        /*if (_userName.value.toString().trim() == Constants.APP_CREDENTIAL.userName
+
+        if (_userName.value.toString().trim() == Constants.APP_CREDENTIAL.userName
             && _password.value.toString().trim() == Constants.APP_CREDENTIAL.password
         )
             _loggedIn.value = true
         else {
             _loggedIn.value = false
             resetCredential()
-        }*/
+        }
 
     }
 

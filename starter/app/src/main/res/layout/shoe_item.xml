@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
@@ -8,7 +8,6 @@
             type="com.udacity.shoestore.models.Shoe" />
     </data>
     <androidx.cardview.widget.CardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
@@ -26,18 +25,14 @@
 
             <TextView
                 android:id="@+id/shoeNameLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/labelStyle"
                 android:text="@string/shoe"
-                android:textStyle="bold"/>
+               />
 
             <TextView
                 android:id="@+id/shoeNameText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                style="@style/stretchedTextStyle"
                 android:text="@{shoe.name}"
-                android:layout_marginHorizontal="8dp"
                 />
         </LinearLayout>
         <LinearLayout
@@ -47,18 +42,15 @@
 
             <TextView
                 android:id="@+id/shoeCompanyLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/labelStyle"
                 android:text="@string/company"
-                android:textStyle="bold"/>
+               />
 
             <TextView
                 android:id="@+id/shoeCompanyText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                style="@style/stretchedTextStyle"
                 android:text="@{shoe.company}"
-                android:layout_marginHorizontal="8dp"
+
                 />
         </LinearLayout>
         <LinearLayout
@@ -68,18 +60,15 @@
 
             <TextView
                 android:id="@+id/shoeSizeLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/labelStyle"
                 android:text="@string/size"
-                android:textStyle="bold"/>
+                />
 
             <TextView
                 android:id="@+id/shoeSizeText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                style="@style/stretchedTextStyle"
                 android:text="@{Double.toString(shoe.size)}"
-                android:layout_marginHorizontal="8dp"/>
+              />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -88,18 +77,15 @@
 
             <TextView
                 android:id="@+id/shoeDescriptionLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/labelStyle"
                 android:text="@string/description"
-                android:textStyle="bold"/>
+                />
 
             <TextView
                 android:id="@+id/shoeDescriptionText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                style="@style/stretchedTextStyle"
                 android:text="@{shoe.description}"
-                android:layout_marginHorizontal="8dp"/>
+                />
         </LinearLayout>
 
         <ImageView
@@ -107,7 +93,7 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_marginVertical="8dp"
-            />
+            android:contentDescription="@string/shoe_image_view" />
 
 
     </LinearLayout>
