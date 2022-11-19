@@ -5,11 +5,19 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class InstructionsViewModel : ViewModel() {
-    private val _acceptInstructions = MutableLiveData<Boolean>()
-    val  acceptInstructions: LiveData<Boolean>
-        get() = _acceptInstructions
+    private val _eventOpenShoeListScreen = MutableLiveData<Boolean>()
+    val eventOpenShoeListScreen: LiveData<Boolean>
+        get() = _eventOpenShoeListScreen
 
-    fun acceptInstructions(){
-        _acceptInstructions.value = true
+    init {
+        _eventOpenShoeListScreen.value = false
+    }
+
+    fun openShoeListScreen() {
+        _eventOpenShoeListScreen.value = true
+    }
+
+    fun onShoeListScreenOpened() {
+        _eventOpenShoeListScreen.value = false
     }
 }

@@ -14,6 +14,8 @@
         <action
             android:id="@+id/action_LoginFragment_to_WelcomeFragment"
             app:destination="@id/WelcomeFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slid_in_right"
             app:popUpTo="@id/LoginFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -25,6 +27,8 @@
         <action
             android:id="@+id/action_WelcomeFragment_to_InstructionsFragment"
             app:destination="@id/InstructionsFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slid_in_right"
             app:popUpTo="@id/WelcomeFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -35,6 +39,8 @@
         <action
             android:id="@+id/action_InstructionsFragment_to_ShoeListFragment"
             app:destination="@id/ShoeListFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slid_in_right"
             app:popUpTo="@id/InstructionsFragment" />
     </fragment>
     <fragment
@@ -43,7 +49,9 @@
         android:label="@string/shoes">
         <action
             android:id="@+id/action_ShoeListFragment_to_shoeDetailFragment"
-            app:destination="@id/shoeDetailFragment" />
+            app:destination="@id/shoeDetailFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slid_in_right" />
         <argument
             android:name="isShoeItemAdded"
             app:argType="boolean" />
@@ -59,6 +67,8 @@
         android:label="@string/add_shoe">
         <action
             android:id="@+id/action_shoeDetailFragment_to_ShoeListFragment"
-            app:destination="@id/ShoeListFragment" />
+            app:destination="@id/ShoeListFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slid_in_right" />
     </fragment>
 </navigation>

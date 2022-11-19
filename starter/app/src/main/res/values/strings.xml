@@ -1,7 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">ShoeStore</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="user_name">User Name</string>
     <string name="type_in_your_user_name">Type in your User Name</string>
     <string name="password">Password</string>
@@ -27,5 +25,6 @@
     <string name="welcome">Welcome</string>
     <string name="shoes">Shoes</string>
     <string name="add_shoe">Add Shoe</string>
+    <string name="size_should_be_number">Shoe Size should be a number !!</string>
 
 </resources>

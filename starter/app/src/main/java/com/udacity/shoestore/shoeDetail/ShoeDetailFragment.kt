@@ -46,7 +46,7 @@ class ShoeDetailFragment: Fragment() {
             return null
         }
         if(binding.shoeSizeEditText.text.toString().toDoubleOrNull() == null){
-            Toast.makeText(context,"Shoe Size should be a number !!",Toast.LENGTH_SHORT).show()
+            Toast.makeText(context,getString(R.string.size_should_be_number),Toast.LENGTH_SHORT).show()
             return null
         }
 

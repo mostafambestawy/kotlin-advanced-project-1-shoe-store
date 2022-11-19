@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="instructionsViewModel"
+            type="com.udacity.shoestore.instructions.InstructionsViewModel" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -54,7 +59,7 @@
         </ScrollView>
 
         <Button
-            android:id="@+id/shoeListingButton"
+            android:id="@+id/openShoeListButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -63,7 +68,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/instructionsScroll"
-            app:layout_constraintVertical_bias="0.292" />
+            app:layout_constraintVertical_bias="0.292"
+            android:onClick="@{() -> instructionsViewModel.openShoeListScreen()}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

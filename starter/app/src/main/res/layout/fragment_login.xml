@@ -34,6 +34,7 @@
                 android:hint="@string/type_in_your_user_name"
                 android:inputType="text"
                 android:text="@{loginViewModel.userName}"
+                android:afterTextChanged="@{(text)->loginViewModel.updateUserName(text.toString().trim())}"
                 android:layout_marginHorizontal="8dp"/>
         </LinearLayout>
         <LinearLayout
@@ -56,6 +57,7 @@
                 android:autofillHints="password"
                 android:inputType="textPassword"
                 android:text="@{loginViewModel.password}"
+                android:afterTextChanged="@{(text)->loginViewModel.updatePassword(text.toString().trim())}"
                 android:layout_marginHorizontal="8dp"
                 />
 
