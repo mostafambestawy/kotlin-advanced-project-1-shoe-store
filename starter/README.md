@@ -76,3 +76,28 @@ Open the starter project in Android Studio
     * Observe the shoes variable from the ViewModel
     * Use DataBindingUtil to inflate the shoe_list layout
     * Add a new layout item into the scrollview for each shoe.
+## References
+### Navigation
+https://developer.android.com/jetpack/androidx/releases/navigation
+
+### Data Binding
+https://developer.android.com/jetpack/androidx/releases/databinding
+
+### LifeCycle
+https://developer.android.com/jetpack/androidx/releases/lifecycle
+
+### Guide line
+https://learn.udacity.com/nanodegrees/nd940-fwd-t3/parts/cd0635/lessons/51617f2a-b1f4-4e60-bd67-fce2ea74bcf9/concepts/a35dbb22-8707-4ed4-a143-94dae7d2bd48
+
+### Data Class
+https://kotlinlang.org/docs/data-classes.html
+
+### Dummy Shoes Images
+https://www.shutterstock.com
+
+### Add data to list in mutable live data
+https://stackoverflow.com/questions/69137842/how-to-add-data-to-list-in-mutablelivedata
+
+### Shared ViewModel Across Fragments
+https://developer.android.com/codelabs/basic-android-kotlin-training-shared-viewmodel#0
+    

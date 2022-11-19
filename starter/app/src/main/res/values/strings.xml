@@ -26,5 +26,6 @@
     <string name="shoes">Shoes</string>
     <string name="add_shoe">Add Shoe</string>
     <string name="size_should_be_number">Shoe Size should be a number !!</string>
+    <string name="shoe_image_view">Shoe Image View</string>
 
 </resources>
