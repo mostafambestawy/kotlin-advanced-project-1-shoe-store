@@ -1,112 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+
     <data>
+
         <variable
             name="shoeDetailviewMode"
             type="com.udacity.shoestore.shoeDetail.ShoeDetailViewModel" />
     </data>
+    <!-- as the power of data binding no matter we use any Layout type, as there will not be any effects on performance -->
+    <!-- here we use LinearLayout for coding simplicity -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="8dp">
-    <androidx.cardview.widget.CardView
+        android:layout_marginTop="8dp"
+        android:orientation="vertical">
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:layout_margin="8dp">
-        <LinearLayout
+        <androidx.cardview.widget.CardView
+
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-                <TextView
-                    android:id="@+id/shoeNameLabel"
-                    android:text="@string/shoe"
-                    style="@style/labelStyle" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/shoeNameEditText"
-                    android:hint="@string/shoe"
-                    style="@style/stretchedTextStyle"
-                    android:autofillHints="@string/shoe"
-                    android:inputType="text"/>
+                    <TextView
+                        android:id="@+id/shoeNameLabel"
+                        style="@style/labelStyle"
+                        android:text="@string/shoe" />
+
+                    <EditText
+                        android:id="@+id/shoeNameEditText"
+                        style="@style/stretchedTextStyle"
+                        android:autofillHints="@string/shoe"
+                        android:hint="@string/shoe"
+                        android:inputType="text" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/shoeCompanyLabel"
+                        style="@style/labelStyle"
+                        android:text="@string/company" />
+
+                    <EditText
+                        android:id="@+id/shoeCompanyEditText"
+                        style="@style/stretchedTextStyle"
+                        android:autofillHints="@string/company"
+                        android:hint="@string/company"
+                        android:inputType="text" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/shoeSizeLabel"
+                        style="@style/labelStyle"
+                        android:text="@string/size"
+
+                        />
+
+                    <EditText
+                        android:id="@+id/shoeSizeEditText"
+                        style="@style/stretchedTextStyle"
+                        android:autofillHints="@string/size"
+                        android:hint="@string/size"
+                        android:inputType="number" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/shoeDescriptionLabel"
+                        style="@style/labelStyle"
+                        android:text="@string/description" />
+
+                    <EditText
+                        android:id="@+id/shoeDescriptionEditText"
+                        style="@style/stretchedTextStyle"
+                        android:autofillHints="@string/description"
+                        android:hint="@string/description"
+                        android:inputType="text" />
+                </LinearLayout>
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/shoeCompanyLabel"
-                    style="@style/labelStyle"
-                    android:text="@string/company"
-                    />
-
-                <EditText
-                    android:id="@+id/shoeCompanyEditText"
-                    style="@style/stretchedTextStyle"
-                    android:hint="@string/company"
-                    android:autofillHints="@string/company"
-                    android:inputType="text"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/shoeSizeLabel"
-                    style="@style/labelStyle"
-                    android:text="@string/size"
-
-                    />
-
-                <EditText
-                    android:id="@+id/shoeSizeEditText"
-                    style="@style/stretchedTextStyle"
-                    android:hint="@string/size"
-                    android:autofillHints="@string/size"
-                    android:inputType="number"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/shoeDescriptionLabel"
-                    style="@style/labelStyle"
-                    android:text="@string/description"
-                    />
-
-                <EditText
-                    android:id="@+id/shoeDescriptionEditText"
-                    style="@style/stretchedTextStyle"
-                    android:hint="@string/description"
-                    android:autofillHints="@string/description"
-                    android:inputType="text"/>
-            </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
         <Button
             android:id="@+id/saveButton"
             style="@style/buttonStyle"
-            android:text="@string/save"
-            android:onClick="@{() -> shoeDetailviewMode.saveShoe()}"/>
+            android:onClick="@{() -> shoeDetailviewMode.saveShoe()}"
+            android:text="@string/save" />
+
         <Button
             android:id="@+id/cancelButton"
             style="@style/buttonStyle"
-            android:text="@string/cancel"
-            android:onClick="@{() -> shoeDetailviewMode.cancelShoeAdd()}"/>
+            android:onClick="@{() -> shoeDetailviewMode.cancelShoeAdd()}"
+            android:text="@string/cancel" />
 
     </LinearLayout>
 </layout>

@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
+
         <variable
             name="instructionsViewModel"
             type="com.udacity.shoestore.instructions.InstructionsViewModel" />
     </data>
+    <!-- as the power of data binding no matter we use any Layout type, as there will not be any effects on performance -->
+    <!-- here we use ConstraintLayout for more control in positioning elements specially element number is less than 15 -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/titleText"
+            style="@style/titleStyle"
             android:text="@string/title"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.288"
-            style="@style/titleStyle" />
+            app:layout_constraintVertical_bias="0.288" />
 
         <TextView
             android:id="@+id/readInstructionsText"
@@ -47,8 +51,8 @@
                 android:id="@+id/instructionsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/textText"
                 android:text="@string/instructions_items"
+                android:textColor="@color/textText"
 
                 />
         </ScrollView>
@@ -56,13 +60,13 @@
         <Button
             android:id="@+id/openShoeListButton"
             style="@style/buttonStyle"
+            android:onClick="@{() -> instructionsViewModel.openShoeListScreen()}"
             android:text="@string/accept_and_open_shoe_listing"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/instructionsScroll"
-            app:layout_constraintVertical_bias="0.292"
-            android:onClick="@{() -> instructionsViewModel.openShoeListScreen()}"/>
+            app:layout_constraintVertical_bias="0.292" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

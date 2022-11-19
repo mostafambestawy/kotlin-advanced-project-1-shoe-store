@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
     <data>
+
         <variable
             name="loginViewModel"
             type="com.udacity.shoestore.login.LoginViewModel" />
     </data>
+    <!-- as the power of data binding no matter we use any Layout type, as there will not be any effects on performance -->
+    <!-- here we use LinearLayout for coding simplicity -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
         android:layout_margin="16dp"
-        >
+        android:gravity="center"
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="16dp">
+            android:layout_margin="16dp"
+            android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/userNameText"
                 style="@style/labelStyle"
@@ -26,18 +30,19 @@
             <EditText
                 android:id="@+id/userNameEditText"
                 style="@style/stretchedTextStyle"
+                android:layout_marginHorizontal="8dp"
+                android:afterTextChanged="@{(text)->loginViewModel.updateUserName(text.toString().trim())}"
                 android:autofillHints="name"
                 android:hint="@string/type_in_your_user_name"
                 android:inputType="text"
-                android:text="@{loginViewModel.userName}"
-                android:afterTextChanged="@{(text)->loginViewModel.updateUserName(text.toString().trim())}"
-                android:layout_marginHorizontal="8dp"/>
+                android:text="@{loginViewModel.userName}" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="16dp">
+            android:layout_margin="16dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/passwordText"
@@ -47,32 +52,32 @@
             <EditText
                 android:id="@+id/passwordEditText"
                 style="@style/stretchedTextStyle"
+                android:layout_marginHorizontal="8dp"
+                android:afterTextChanged="@{(text)->loginViewModel.updatePassword(text.toString().trim())}"
                 android:autofillHints="password"
                 android:inputType="textPassword"
-                android:text="@{loginViewModel.password}"
-                android:afterTextChanged="@{(text)->loginViewModel.updatePassword(text.toString().trim())}"
-                android:layout_marginHorizontal="8dp"
-                />
+                android:text="@{loginViewModel.password}" />
 
 
         </LinearLayout>
+
         <TextView
             android:id="@+id/helpText"
             style="@style/labelStyle"
             android:layout_margin="16dp"
-            android:visibility="gone"
-            android:text="@string/help_format" />
+            android:text="@string/help_format"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/loginButton"
             style="@style/buttonStyle"
             android:onClick="@{() -> loginViewModel.checkCredential()}"
             android:text="@string/login" />
+
         <Button
             android:id="@+id/signUpButton"
             style="@style/buttonStyle"
-            android:text="@string/create_new_account"
             android:onClick="@{() -> loginViewModel.checkCredential()}"
-             />
+            android:text="@string/create_new_account" />
     </LinearLayout>
 </layout>
