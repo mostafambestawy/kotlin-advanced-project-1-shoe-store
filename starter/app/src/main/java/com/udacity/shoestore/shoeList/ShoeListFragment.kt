@@ -47,10 +47,12 @@ class ShoeListFragment : Fragment() {
                 }
             });
 
-        var args = ShoeListFragmentArgs.fromBundle(requireArguments())
-        if (args.isShoeItemAdded) {
-            mainActivityViewModel.addShoeItem(args.shoeItem!!)
-        }
+        mainActivityViewModel.shoeTobeAdded.observe(viewLifecycleOwner, Observer { shoeTobeAdded ->
+            if(shoeTobeAdded != null) {
+                mainActivityViewModel.clearShoeTobeAdded()
+                mainActivityViewModel.addShoeItem(shoeTobeAdded)
+            }
+        })
 
         setHasOptionsMenu(true)
 

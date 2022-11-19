@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="shoeDetailviewMode"
+            type="com.udacity.shoestore.shoeDetail.ShoeDetailViewModel" />
+    </data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -95,11 +100,13 @@
         <Button
             android:id="@+id/saveButton"
             style="@style/buttonStyle"
-            android:text="@string/save" />
+            android:text="@string/save"
+            android:onClick="@{() -> shoeDetailviewMode.saveShoe()}"/>
         <Button
             android:id="@+id/cancelButton"
             style="@style/buttonStyle"
-            android:text="@string/cancel" />
+            android:text="@string/cancel"
+            android:onClick="@{() -> shoeDetailviewMode.cancelShoeAdd()}"/>
 
     </LinearLayout>
 </layout>

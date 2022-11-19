@@ -30,9 +30,7 @@ class InstructionsFragment : Fragment() {
                 if (event) {
                     viewModel.onShoeListScreenOpened()
                     findNavController().navigate(
-                        InstructionsFragmentDirections.actionInstructionsFragmentToShoeListFragment(
-                            false
-                        )
+                        InstructionsFragmentDirections.actionInstructionsFragmentToShoeListFragment()
                     )
                 }
             })

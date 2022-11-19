@@ -52,14 +52,6 @@
             app:destination="@id/shoeDetailFragment"
             app:enterAnim="@anim/slide_in_left"
             app:exitAnim="@anim/slid_in_right" />
-        <argument
-            android:name="isShoeItemAdded"
-            app:argType="boolean" />
-        <argument
-            android:name="shoeItem"
-            android:defaultValue="@null"
-            app:argType="com.udacity.shoestore.models.Shoe"
-            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/shoeDetailFragment"

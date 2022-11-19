@@ -7,7 +7,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.udacity.shoestore.MainActivityViewModel
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
 import com.udacity.shoestore.models.Shoe
@@ -15,22 +19,32 @@ import com.udacity.shoestore.models.Shoe
 
 class ShoeDetailFragment: Fragment() {
     private lateinit var binding: FragmentShoeDetailBinding
+    private lateinit var viewModel: ShoeDetailViewModel
+    private val mainActivityViewModel: MainActivityViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_detail, container, false)
         binding.lifecycleOwner = this
+        viewModel =  ViewModelProvider(this)[ShoeDetailViewModel::class.java]
+        binding.shoeDetailviewMode = viewModel
+        viewModel.eventSaveShoe.observe(viewLifecycleOwner, Observer { event ->
+            if(event){
+                val shoe:Shoe? = getValidatedShoe()
+                if(shoe != null) mainActivityViewModel.setShoeToBeAdded(shoe)
+                viewModel.onShoeSaved()
+                findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
+            }
+        })
+        viewModel.eventCancelShoeAdd.observe(viewLifecycleOwner, Observer { event ->
+            if(event){
+                viewModel.onShoeAddCancelled()
+                findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
+            }
+        })
 
 
-        binding.saveButton.setOnClickListener {
-            val shoe:Shoe? = getValidatedShoe()
-            if(shoe != null)
-          findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment(true,shoe,))
-        }
-        binding.cancelButton.setOnClickListener {
-            findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment(false))
-        }
 
         return binding.root
     }
