@@ -6,7 +6,6 @@ import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -18,6 +17,7 @@ import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.databinding.ShoeItemBinding
 import com.udacity.shoestore.models.Shoe
 
+@Suppress("DEPRECATION")
 class ShoeListFragment : Fragment() {
     private lateinit var binding: FragmentShoeListBinding
     private val mainActivityViewModel: MainActivityViewModel by activityViewModels()
@@ -26,33 +26,34 @@ class ShoeListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_list, container, false)
         binding.lifecycleOwner = this
         viewModel = ViewModelProvider(this)[ShoeListViewModel::class.java]
         binding.shoeListViewModel = viewModel
-        mainActivityViewModel.shoeList.observe(viewLifecycleOwner, Observer { shoeList ->
+
+        mainActivityViewModel.shoeList.observe(viewLifecycleOwner) { shoeList ->
             for (shoe: Shoe in shoeList) run {
                 binding.shoeListLinearLayout.addView(getShoeView(shoe))
             }
 
-        })
+        }
 
         viewModel.eventOpenAddShoeScreen.observe(
-            viewLifecycleOwner,
-            Observer { eventOpenAddShoeScreen ->
-                if (eventOpenAddShoeScreen) {
-                    viewModel.onAddShoeScreenOpened()
-                    findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment())
-                }
-            });
+            /* owner = */ viewLifecycleOwner
+        ) { eventOpenAddShoeScreen ->
+            if (eventOpenAddShoeScreen) {
+                viewModel.onAddShoeScreenOpened()
+                findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment())
+            }
+        }
 
-        mainActivityViewModel.shoeTobeAdded.observe(viewLifecycleOwner, Observer { shoeTobeAdded ->
-            if(shoeTobeAdded != null) {
+        mainActivityViewModel.shoeTobeAdded.observe(viewLifecycleOwner) { shoeTobeAdded ->
+            if (shoeTobeAdded != null) {
                 mainActivityViewModel.clearShoeTobeAdded()
                 mainActivityViewModel.addShoeItem(shoeTobeAdded)
             }
-        })
+        }
 
         setHasOptionsMenu(true)
 
@@ -60,22 +61,20 @@ class ShoeListFragment : Fragment() {
     }
 
 
-    private fun navigateToShoList() {
-
-    }
-
+    @Deprecated("Deprecated in Java")
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater?.inflate(R.menu.logout_menu, menu)
+        inflater.inflate(R.menu.logout_menu, menu)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item!!, requireView().findNavController())
+        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
                 ||
                 super.onOptionsItemSelected(item)
     }
 
-    private fun getShoeView(shoe: Shoe): View? {
+    private fun getShoeView(shoe: Shoe): View {
 
         val _binding: ShoeItemBinding = DataBindingUtil.inflate(
             LayoutInflater.from(context),

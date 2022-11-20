@@ -4,8 +4,9 @@
     <data>
 
         <variable
-            name="shoeDetailviewMode"
+            name="shoeDetailViewModel"
             type="com.udacity.shoestore.shoeDetail.ShoeDetailViewModel" />
+
     </data>
     <!-- as the power of data binding no matter we use any Layout type, as there will not be any effects on performance -->
     <!-- here we use LinearLayout for coding simplicity -->
@@ -41,9 +42,11 @@
                     <EditText
                         android:id="@+id/shoeNameEditText"
                         style="@style/stretchedTextStyle"
+                        android:afterTextChanged="@{(text) -> shoeDetailViewModel.setShoeName(text.toString())}"
                         android:autofillHints="@string/shoe"
                         android:hint="@string/shoe"
-                        android:inputType="text" />
+                        android:inputType="text"
+                        android:text="@{shoeDetailViewModel.shoeName}" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -59,9 +62,11 @@
                     <EditText
                         android:id="@+id/shoeCompanyEditText"
                         style="@style/stretchedTextStyle"
+                        android:afterTextChanged="@{(text) -> shoeDetailViewModel.setShoeCompany(text.toString())}"
                         android:autofillHints="@string/company"
                         android:hint="@string/company"
-                        android:inputType="text" />
+                        android:inputType="text"
+                        android:text="@{shoeDetailViewModel.shoeCompany}" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -79,9 +84,11 @@
                     <EditText
                         android:id="@+id/shoeSizeEditText"
                         style="@style/stretchedTextStyle"
+                        android:afterTextChanged="@{(text) -> shoeDetailViewModel.setShoeSize(text.toString())}"
                         android:autofillHints="@string/size"
                         android:hint="@string/size"
-                        android:inputType="number" />
+                        android:inputType="number"
+                        android:text="@{Double.toString(shoeDetailViewModel.shoeSize)}" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -97,9 +104,11 @@
                     <EditText
                         android:id="@+id/shoeDescriptionEditText"
                         style="@style/stretchedTextStyle"
+                        android:afterTextChanged="@{(text) -> shoeDetailViewModel.setShoeDescription(text.toString())}"
                         android:autofillHints="@string/description"
                         android:hint="@string/description"
-                        android:inputType="text" />
+                        android:inputType="text"
+                        android:text="@{shoeDetailViewModel.shoeDescription}" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -107,13 +116,13 @@
         <Button
             android:id="@+id/saveButton"
             style="@style/buttonStyle"
-            android:onClick="@{() -> shoeDetailviewMode.saveShoe()}"
+            android:onClick="@{() -> shoeDetailViewModel.saveShoe()}"
             android:text="@string/save" />
 
         <Button
             android:id="@+id/cancelButton"
             style="@style/buttonStyle"
-            android:onClick="@{() -> shoeDetailviewMode.cancelShoeAdd()}"
+            android:onClick="@{() -> shoeDetailViewModel.cancelShoeAdd()}"
             android:text="@string/cancel" />
 
     </LinearLayout>
