@@ -33,6 +33,7 @@ class ShoeListFragment : Fragment() {
         binding.shoeListViewModel = viewModel
 
         mainActivityViewModel.shoeList.observe(viewLifecycleOwner) { shoeList ->
+            binding.shoeListLinearLayout.removeAllViews()
             for (shoe: Shoe in shoeList) run {
                 binding.shoeListLinearLayout.addView(getShoeView(shoe))
             }

@@ -52,10 +52,10 @@ class ShoeDetailFragment : Fragment() {
     }
 
     private fun getValidatedShoe(): Shoe? {
-        if (viewModel.shoeName.value!!.equals("")
+        if (viewModel.shoeName.value!!.toString().trim().equals("")
             || viewModel.shoeSize.value!! == 0.0
-            || viewModel.shoeCompany.value!!.equals("")
-            || viewModel.shoeDescription.value!!.equals("")
+            || viewModel.shoeCompany.value!!.toString().trim().equals("")
+            || viewModel.shoeDescription.value!!.toString().trim().equals("")
         ) {
             Toast.makeText(context, getString(R.string.missing_data), Toast.LENGTH_SHORT).show()
             return null

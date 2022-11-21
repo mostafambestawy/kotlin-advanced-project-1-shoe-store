@@ -42,11 +42,10 @@
                     <EditText
                         android:id="@+id/shoeNameEditText"
                         style="@style/stretchedTextStyle"
-                        android:afterTextChanged="@{(text) -> shoeDetailViewModel.setShoeName(text.toString())}"
                         android:autofillHints="@string/shoe"
                         android:hint="@string/shoe"
                         android:inputType="text"
-                        android:text="@{shoeDetailViewModel.shoeName}" />
+                        android:text="@={shoeDetailViewModel.shoeName}" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -62,11 +61,11 @@
                     <EditText
                         android:id="@+id/shoeCompanyEditText"
                         style="@style/stretchedTextStyle"
-                        android:afterTextChanged="@{(text) -> shoeDetailViewModel.setShoeCompany(text.toString())}"
+
                         android:autofillHints="@string/company"
                         android:hint="@string/company"
                         android:inputType="text"
-                        android:text="@{shoeDetailViewModel.shoeCompany}" />
+                        android:text="@={shoeDetailViewModel.shoeCompany}" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -84,11 +83,10 @@
                     <EditText
                         android:id="@+id/shoeSizeEditText"
                         style="@style/stretchedTextStyle"
-                        android:afterTextChanged="@{(text) -> shoeDetailViewModel.setShoeSize(text.toString())}"
                         android:autofillHints="@string/size"
                         android:hint="@string/size"
-                        android:inputType="number"
-                        android:text="@{Double.toString(shoeDetailViewModel.shoeSize)}" />
+                        android:inputType="numberDecimal"
+                        android:text="@={``+shoeDetailViewModel.shoeSize}" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -104,11 +102,10 @@
                     <EditText
                         android:id="@+id/shoeDescriptionEditText"
                         style="@style/stretchedTextStyle"
-                        android:afterTextChanged="@{(text) -> shoeDetailViewModel.setShoeDescription(text.toString())}"
                         android:autofillHints="@string/description"
                         android:hint="@string/description"
                         android:inputType="text"
-                        android:text="@{shoeDetailViewModel.shoeDescription}" />
+                        android:text="@={shoeDetailViewModel.shoeDescription}" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
